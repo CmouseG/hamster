@@ -2,6 +2,7 @@ var config = require('../config')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var utils = require('./utils')
+var platform = require('./platform')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -12,13 +13,14 @@ Object.keys(baseWebpackConfig.entry).forEach(function(name) {
 
 module.exports = merge(baseWebpackConfig, {
 	module: {
-		loaders: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
+		loaders: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, postcss: true })
 	},
     // eval-source-map is faster for development
 	devtool: '#eval-source-map',
 	plugins: [
 		new webpack.DefinePlugin({
-			'process.env': config.dev.env
+			'process.env': config.dev.env,
+			'__THEME': '"' + platform.theme + '"'
 		}),
 		// https://github.com/glenjamin/webpack-hot-middleware#installation--usage
 		new webpack.optimize.OccurenceOrderPlugin(),

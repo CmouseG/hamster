@@ -5,7 +5,8 @@ module.exports = {
 		sourceType: 'module'
 	},
 	globals: {
-		'Velocity': true
+		'Velocity': true,
+		'__THEME': true
 	},
 	// https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
 	extends: 'standard',

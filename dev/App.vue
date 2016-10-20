@@ -1,6 +1,7 @@
 <template>
     <div id="container">
         <h1>{{msg}}</h1>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -13,11 +14,3 @@
 	    }
 	}
 </script>
-
-<style lang="stylus">
-	$color = orange
-	#container
-	  h1
-	    color $color
-	    display flex
-</style>
