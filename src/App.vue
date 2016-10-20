@@ -5,13 +5,13 @@
 </template>
 
 <script>
-    export default {
-		data() {
-			return {
-				msg: 'Hello Vue, Come Here'
-			}
-		}
-    }
+	export default {
+	    data() {
+	        return {
+	            msg: 'Hello Vue, Come Here'
+	        }
+	    }
+	}
 </script>
 
 <style lang="stylus">
