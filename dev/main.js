@@ -5,6 +5,7 @@ import App from './App'
 import Home from './Home'
 
 Vue.config.debug = true
+let __THEME = 'mat'
 require('../src/themes/hamster.' + __THEME + '.styl')
 hamster.theme.set(__THEME)
 

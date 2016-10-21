@@ -1,0 +1,9 @@
+var assgin = require('object-assign')
+var base = require('./karma.base.config.js')
+
+module.exports = function(config) {
+    config.set(assgin(base, {
+        browsers: ['Chrome'],
+        reporters: ['jasmine-diff', 'progress']
+    }))
+}
