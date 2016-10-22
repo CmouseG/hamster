@@ -12,8 +12,6 @@ import directiveScrollFire from './directives/scroll-fire'
 import directiveScroll from './directives/scroll'
 import directiveTooltip from './directives/tooltip'
 
-import Modal from './components/modal/modal'
-
 // function registerTransition(_Vue) {
 //     _Vue.transition('slide', transitionSlide)
 // }
@@ -31,7 +29,11 @@ function registerDirectives(_Vue) {
 }
 
 function registerComponents(_Vue) {
-    _Vue.component('hamster-modal', Modal)
+    let prefix = 'hamster-'
+    const components = require('./components/components.json')
+    for (var i of components) {
+        _Vue.component(prefix + i.name, require(i.path + '/index.js'))
+    }
 }
 
 export let Vue

@@ -1,28 +1,17 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import VueTouch from 'vue-touch'
 import hamster from 'hamster'
+
+import router from './router'
 import App from './App'
-import Home from './Home'
 
 Vue.config.debug = true
 let __THEME = 'mat'
 require('../src/themes/hamster.' + __THEME + '.styl')
 hamster.theme.set(__THEME)
 
-Vue.use(VueRouter)
+Vue.use(VueTouch)
 Vue.use(hamster)
-// new Vue({
-//     render: h => h(App)
-// }).$mount('#app')
-
-const router = new VueRouter({
-    routes: [
-        {
-            path: '/foo',
-            component: Home
-        }
-    ]
-})
 
 new Vue({
     router,

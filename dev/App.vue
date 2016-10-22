@@ -1,7 +1,44 @@
 <template>
     <div id="container">
-        <h1>{{msg}}</h1>
-        <router-view></router-view>
+        <hamster-layout>
+        	<!-- header start -->
+        	<div slot="header" class="toolbar">
+        		<button class="left-drawer-opener"><i>menu</i></button>
+        	</div>
+        	<!-- header end -->
+
+            <!-- left drawer start -->
+            <hamster-drawer>
+                <div class="drawer-header">
+                    <img :src="'statics/bg.jpg'">
+                    <a class="avatar">
+                        <img :src="'statics/vue.png'">
+                    </a>
+                </div>
+            </hamster-drawer>
+            <!-- left drawer end -->
+
+        	<!-- content start -->
+        	<router-view class="layout-view"></router-view>
+        	<!-- content end -->
+
+        	<!-- footer start -->
+        	<div slot="footer" class="toolbar light">
+        		<!-- <div class="row">
+                    <div class="auto">
+                        <a class="avatar">
+                            <img :src="'statics/vue.png'">
+                        </a>
+                    </div>
+                    <div class="auto">
+                        <a class="avatar">
+                            <img :src="'statics/vue.png'">
+                        </a>
+                    </div>      
+                </div> -->
+        	</div>
+        	<!-- footer end -->
+        </hamster-layout>
     </div>
 </template>
 
