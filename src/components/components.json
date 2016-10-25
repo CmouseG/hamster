@@ -1,5 +1,11 @@
 [
 	{"name": "layout", "path": "./components/layout"},
 	{"name": "modal", "path": "./components/modal"},
-	{"name": "drawer", "path": "./components/drawer"}
+	{"name": "drawer", "path": "./components/drawer"},
+	{"name": "switch", "path": "./components/switch"},
+	{"name": "fab", "path": "./components/fab"},
+	{"name": "small-fab", "path": "./components/small-fab"},
+	{"name": "search", "path": "./components/search"},
+	{"name": "tabs", "path": "./components/tabs"},
+	{"name": "tab", "path": "./components/tab"}
 ]

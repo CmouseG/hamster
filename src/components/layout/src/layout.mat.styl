@@ -30,6 +30,9 @@ $toolbar-title-font-size   ?= 1.25rem
 .layout-footer
   order 10
   box-shadow $layout-footer-shadow
+  div.row
+    div
+      text-align center
 
 body.desktop
   .layout-header, .layout-footer
@@ -48,9 +51,12 @@ body.desktop
   -webkit-overflow-scrolling touch
   will-change scroll-position
 
-.layout-header, .layout-footer
+.layout-header
   color $toolbar-color
   background $toolbar-background
+.layout-footer
+    color: #9f9f9f;
+    background: #f4f4f4;
 
 .layout-header, .layout-footer
   z-index $z-marginals
@@ -132,7 +138,9 @@ body.desktop
 
 .layout-footer
     .avatar img
-      height 64px
-      width 64px
-      margin-bottom 25px
+      height 48px
+      width 48px
+      // padding-top 0.6rem
+      margin-top 0.5rem
+      // margin-bottom 25px
       border-radius 50%

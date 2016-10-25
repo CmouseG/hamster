@@ -6,7 +6,9 @@ import router from './router'
 import App from './App'
 
 Vue.config.debug = true
-let __THEME = 'mat'
+// 切记勿打开，否则编译stylus会出错，各种问题，仅在测试的时候打开
+// let __THEME = 'mat'
+
 require('../src/themes/hamster.' + __THEME + '.styl')
 hamster.theme.set(__THEME)
 

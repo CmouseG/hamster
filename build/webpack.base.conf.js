@@ -51,7 +51,11 @@ module.exports = {
 			}, {
 				test: /\.html$/,
 				loader: 'vue-html'
-			}, {
+			},
+            {
+                test: /\.svg$/,
+                loader: 'raw'
+            }, {
 				test: /\.(png|jpe?g|gif)(\?.*)?$/,
 				loader: 'url',
 				query: {

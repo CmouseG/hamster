@@ -12,8 +12,31 @@
                 <div class="drawer-header">
                     <img :src="'statics/bg.jpg'">
                     <a class="avatar">
-                        <img :src="'statics/vue.png'">
+                        <img>
                     </a>
+                </div>
+
+                <div class="list">
+                    <router-link class="item item-link drawer-closer" router-link to="/">
+                        <i class="item-primary">home</i>
+                        <div class="item-content">首页</div>
+                    </router-link>
+                    <!-- <router-link class="item item-link drawer-closer" router-link to="/modal">
+                        <i class="item-primary">vignette</i>
+                        <div class="item-content">modal</div>
+                    </router-link> -->
+                    <router-link class="item item-link drawer-closer" router-link to="/dialog">
+                        <i class="item-primary">announcement</i>
+                        <div class="item-content">dialog</div>
+                    </router-link>
+                    <router-link class="item item-link drawer-closer" router-link to="/action-sheet">
+                        <i class="item-primary">build</i>
+                        <div class="item-content">action-sheet</div>
+                    </router-link>
+                    <router-link class="item item-link drawer-closer" router-link to="/tab">
+                        <i class="item-primary">vignette</i>
+                        <div class="item-content">tab</div>
+                    </router-link>
                 </div>
             </hamster-drawer>
             <!-- left drawer end -->
@@ -23,8 +46,13 @@
         	<!-- content end -->
 
         	<!-- footer start -->
-        	<div slot="footer" class="toolbar light">
-        		<!-- <div class="row">
+        	<div slot="footer" class="light">
+        		<div class="row small-gutter">
+                    <div class="auto">
+                        <a class="avatar">
+                            <img :src="'statics/angular.png'">
+                        </a>
+                    </div>
                     <div class="auto">
                         <a class="avatar">
                             <img :src="'statics/vue.png'">
@@ -32,10 +60,10 @@
                     </div>
                     <div class="auto">
                         <a class="avatar">
-                            <img :src="'statics/vue.png'">
+                            <img :src="'statics/react.png'">
                         </a>
                     </div>      
-                </div> -->
+                </div>
         	</div>
         	<!-- footer end -->
         </hamster-layout>
@@ -51,3 +79,8 @@
 	    }
 	}
 </script>
+
+<style lang="stylus">
+    .layout-view
+      padding 10px
+</style>

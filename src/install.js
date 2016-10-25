@@ -36,7 +36,7 @@ function registerComponents(_Vue) {
     }
 }
 
-export let Vue
+export var Vue
 
 export default function(_Vue) {
     if (this.installed) {
