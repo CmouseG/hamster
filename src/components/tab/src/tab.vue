@@ -60,8 +60,8 @@ export default {
         }
     },
     mounted() {
-        let nodes = this.$parent.$el.parentNode.querySelectorAll('div[class=tab]')
         this.$nextTick(() => {
+            let nodes = this.$root.$el.querySelectorAll('div[class=tab]')
             this.$parent.refs[this.uid] = nodes[i++]
             if (this.activeTab) {
                 this.$parent.setActiveTab(this.uid)
@@ -71,6 +71,9 @@ export default {
                 this.__selectTabIfRouteMatches()
             }
         })
+    },
+    destroyed() {
+        i = 0
     },
     methods: {
         activate() {

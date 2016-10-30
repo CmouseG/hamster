@@ -6,7 +6,8 @@ var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
 	entry: {
-		app: './dev/main.js'
+		app: './dev/main.js',
+		vendors: ['Vue']
 	},
 	output: {
 		path: config.build.assetsRoot,

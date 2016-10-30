@@ -3,8 +3,8 @@
     class="fab flex inline justify-center"
     :class="{opened: opened, 'with-backdrop': click || backdrop}"
   >
-    <div v-if="click || backdrop" class="backdrop" @click="toggle(true)"></div>
-    <button class="circular raised" @click="toggle()" :class="typeCpu">
+    <div v-if="click || backdrop" class="backdrop" @click="click"></div>
+    <button class="circular raised" @click="click" :class="typeCpu">
       <i class="fab-icon">{{icon}}</i>
       <i class="fab-active-icon">{{activeIcon}}</i>
     </button>
@@ -15,9 +15,6 @@
 </template>
 
 <script>
-import Hamster from 'hamster'
-let ActionSheet = Hamster.ActionSheet
-
 export default {
     props: {
         type: {
@@ -39,7 +36,8 @@ export default {
             default: 'right'
         },
         click: {
-            type: Function
+            type: Function,
+            default: function() {}
         },
         backdrop: {
             type: Boolean
@@ -55,58 +53,7 @@ export default {
             return Array.isArray(this.type) || typeof value === 'undefined' ? this.type : this.type.split(' ')
         }
     },
-    methods: {
-        toggle(fromBackdrop) {
-            this.opened = !this.opened
-
-            if (!fromBackdrop && this.click && !this.opened) {
-                this.click()
-                return
-            }
-            ActionSheet.create({
-                title: 'Actions',
-                gallery: true,
-                actions: [
-                    {
-                        label: 'Delete',
-                        icon: 'delete',
-                        handler() {
-                            console.log('Deleting')
-                        }
-                    },
-                    {
-                        label: 'Share',
-                        icon: 'share',
-                        handler() {
-                            console.log('Sharing')
-                        }
-                    },
-                    {
-                        label: 'Play',
-                        icon: 'gamepad',
-                        handler() {
-                            console.log('Playing')
-                        }
-                    },
-                    {
-                        label: 'Favorite',
-                        icon: 'favorite',
-                        handler() {
-                            console.log('Added to favorites')
-                        }
-                    },
-                    {
-                        label: 'Cancel',
-                        icon: 'cancel',
-                        classes: 'text-primary',
-                        handler() {
-                            console.log('Cancelled...')
-                        }
-                    }
-                ]
-            })
-        }
-    },
+    methods: {},
     events: {
         closeFAB() {
             this.toggle(true)

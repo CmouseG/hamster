@@ -5,6 +5,7 @@ import Modal from '../views/Modal'
 import Dialog from '../views/Dialog'
 import ActionSheet from '../views/ActionSheet'
 import Tab from '../views/Tab'
+import Logger from '../views/Logger'
 
 // new Vue({
 //     render: h => h(App)
@@ -27,7 +28,12 @@ const router = new VueRouter({
         {
             path: '/tab',
             component: Tab
+        },
+        {
+            path: '/logger',
+            component: Logger
         }
+
     ]
 })
 

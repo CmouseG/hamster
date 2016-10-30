@@ -10,7 +10,7 @@ var env = process.env.NODE_ENV === 'testing' ? require('../config/test.env') : c
 
 var webpackConfig = merge(baseWebpackConfig, {
     module: {
-        loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
+        loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true, postcss: true })
     },
     devtool: config.build.productionSourceMap ? '#source-map' : false,
     output: {
@@ -27,7 +27,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     plugins: [
         // http://vuejs.github.io/vue-loader/workflow/production.html
         new webpack.DefinePlugin({
-            'process.env': env
+            'process.env': env,
+            '__THEME': process.argv[2] || 'mat'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
@@ -42,7 +43,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         // see https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
             filename: process.env.NODE_ENV === 'testing' ? 'index.html' : config.build.index,
-            template: 'index.html',
+            template: 'dev/index.html',
             inject: true,
             minify: {
                 removeComments: true,

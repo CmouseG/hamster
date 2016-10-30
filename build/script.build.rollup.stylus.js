@@ -5,15 +5,15 @@ var
   postcss = require('postcss'),
   cssnano = require('cssnano'),
   autoprefixer = require('autoprefixer'),
-  themes = ['oth', 'mat'],
+  themes = ['mat'],
   nonStandalone = process.argv[2] === 'simple' || process.argv[3] === 'simple',
   version = process.env.VERSION || require('../package.json').version,
   banner =
-    '/*!\n' +
-    ' * hamster Framework v' + version + '\n' +
-    ' * (c) ' + new Date().getFullYear() + ' \n' +
-    ' * Released under the MIT License.\n' +
-    ' */\n'
+    '/*!\r\n' +
+    ' * Quasar Framework v' + version + '\r\n' +
+    ' * (c) ' + new Date().getFullYear() + ' Razvan Stoenescu\r\n' +
+    ' * Released under the MIT License.\r\n' +
+    ' */\r\n'
 
 themes.forEach(function (theme) {
   var
@@ -28,7 +28,7 @@ themes.forEach(function (theme) {
   data = compile([src].concat(deps))
 
   // write Stylus file
-  writeFile('dist/static/css/hamster.' + theme + '.styl', data)
+  writeFile('dist2/css/hamster.' + theme + '.styl', data)
 
   // write compiled CSS file
   stylus(data).render(function (err, css) {
@@ -38,7 +38,7 @@ themes.forEach(function (theme) {
     }
 
     // write unprefixed non-standalone version
-    writeFile('dist/static/css/hamster.' + theme + '.css', css)
+    writeFile('dist2/css/hamster.' + theme + '.css', css)
 
     if (nonStandalone) {
       return
@@ -49,9 +49,9 @@ themes.forEach(function (theme) {
       result.warnings().forEach(function (warn) {
         console.warn(warn.toString())
       })
-      writeFile('dist/static/css/hamster.' + theme + '.standalone.css', result.css)
+      writeFile('dist2/css/hamster.' + theme + '.standalone.css', result.css)
       cssnano.process(result.css).then(function (result) {
-        writeFile('dist/static/css/hamster.' + theme + '.standalone.min.css', result.css)
+        writeFile('dist2/css/hamster.' + theme + '.standalone.min.css', result.css)
       })
     })
   })
@@ -71,8 +71,7 @@ function writeFile (file, data) {
       logError('Could not write ' + file.gray + ' file...')
       return
     }
-    console.log(file + ' ' + getSize(data))
-    // console.log(file.bold + ' ' + getSize(data).gray)
+    console.log(file.bold + ' ' + getSize(data).gray)
   })
 }
 
@@ -80,16 +79,16 @@ function compile (src) {
   var data = banner
 
   src.forEach(function (file) {
-    data += readFile(file) + '\n'
+    data += readFile(file) + '\r\n'
   })
 
   return data
     // remove imports
-    .replace(/@import '[^']+'\n/g, '')
+    .replace(/@import '[^']+'\r\n/g, '')
     // remove comments
-    .replace(/(\/\*[\w'-\.,`\s\r\n\*@]*\*\/)|(\/\/[^\n]*)/g, '')
+    .replace(/(\/\*[\w'-\.,`\s\r\r\n\*@]*\*\/)|(\/\/[^\r\n]*)/g, '')
     // remove unnecessary newlines
-    .replace(/\n[\n]+/g, '\n')
+    .replace(/\n[\r\n]+/g, '\r\n')
 }
 
 function getSize (code) {

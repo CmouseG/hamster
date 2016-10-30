@@ -22,6 +22,7 @@ module.exports = merge(baseWebpackConfig, {
 			'process.env': config.dev.env,
 			'__THEME': '"' + platform.theme + '"'
 		}),
+		new webpack.optimize.DedupePlugin(),
 		// https://github.com/glenjamin/webpack-hot-middleware#installation--usage
 		new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.HotModuleReplacementPlugin(),

@@ -6,6 +6,7 @@ import install from './install'
 import start from './start'
 import init from './init'
 import * as theme from './theme'
+import ModalGenerator from './components/modal-generator'
 
 // import Modal from './components/modal/src/modal.js'
 import Dialog from './components/dialog/src/dialog'
@@ -16,6 +17,7 @@ let hamster = {
     install,
     start,
     theme,
+    ModalGenerator,
     Dialog,
     ActionSheet
 }

@@ -166,7 +166,7 @@ export default {
     mounted() {
         this.$nextTick(() => {
             this.$refs.dialog.open()
-            this.$root.quasarClose = this.close
+            this.$root.hamsterClose = this.close
         })
     },
     destroyed() {

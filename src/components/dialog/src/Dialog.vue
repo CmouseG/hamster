@@ -155,7 +155,7 @@ export default {
     },
     mounted() {
         this.$refs.dialog.open()
-        this.$root.quasarClose = this.close
+        this.$root.hamsterClose = this.close
     },
     destroyed() {
         if (document.body.contains(this.$el)) {

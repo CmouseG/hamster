@@ -10,7 +10,7 @@
             <!-- left drawer start -->
             <hamster-drawer>
                 <div class="drawer-header">
-                    <img :src="'statics/bg.jpg'">
+                    <img v-bind:src="'statics/imgs/bg.jpg'">
                     <a class="avatar">
                         <img>
                     </a>
@@ -21,10 +21,6 @@
                         <i class="item-primary">home</i>
                         <div class="item-content">首页</div>
                     </router-link>
-                    <!-- <router-link class="item item-link drawer-closer" router-link to="/modal">
-                        <i class="item-primary">vignette</i>
-                        <div class="item-content">modal</div>
-                    </router-link> -->
                     <router-link class="item item-link drawer-closer" router-link to="/dialog">
                         <i class="item-primary">announcement</i>
                         <div class="item-content">dialog</div>
@@ -36,6 +32,10 @@
                     <router-link class="item item-link drawer-closer" router-link to="/tab">
                         <i class="item-primary">vignette</i>
                         <div class="item-content">tab</div>
+                    </router-link>
+                    <router-link class="item item-link drawer-closer" router-link to="/logger">
+                        <i class="item-primary">face</i>
+                        <div class="item-content">logger</div>
                     </router-link>
                 </div>
             </hamster-drawer>
@@ -50,17 +50,17 @@
         		<div class="row small-gutter">
                     <div class="auto">
                         <a class="avatar">
-                            <img :src="'statics/angular.png'">
+                            <img :src="'statics/imgs/angular.png'">
                         </a>
                     </div>
                     <div class="auto">
                         <a class="avatar">
-                            <img :src="'statics/vue.png'">
+                            <img :src="'statics/imgs/vue.png'">
                         </a>
                     </div>
                     <div class="auto">
                         <a class="avatar">
-                            <img :src="'statics/react.png'">
+                            <img :src="'statics/imgs/react.png'">
                         </a>
                     </div>      
                 </div>

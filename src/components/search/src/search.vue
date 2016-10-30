@@ -19,6 +19,7 @@
             <button
               class="search-clear"
               @click="clear()"
+              v-on:clearSer="clear()"
               :class="{hidden: this.model === ''}"
             >
                 <i class="mat-only">clear</i>
